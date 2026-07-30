@@ -36,6 +36,12 @@ public class User implements UserDetails{
     @Column(name="verification_expiration")
     private LocalDateTime verficationCodeExpiresAt;
 
+    public User(String username, String email, String encode) {
+        this.username = username;
+        this.email = email;
+        this.password = encode;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
         return List.of();
